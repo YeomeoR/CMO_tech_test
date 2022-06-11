@@ -14,8 +14,10 @@ if ($link === false) {
 echo 'Connected to MariaDB vat_1, successfully' . mysqli_get_host_info($link);
 
 
-$vat = 1.215;
+$vat = 1.2;
+// $R = $vat; // Rate: as requested in test specs
 $exVat = '';
+// $V = $exVat; // excl. VAT: as requested in test specs
 $incVat = '';
 $valueAdded = '';
 $valueNotAdded = '';

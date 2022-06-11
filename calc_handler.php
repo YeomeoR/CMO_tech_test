@@ -10,11 +10,11 @@
 
 include '/wamp64/www/vat_calc/config.php';
 
-$vat = 1.215;
-$exVat = '';
-$incVat = '';
-$valueAdded = '';
-$valueNotAdded = '';
+// $vat = 1.215;
+// $exVat = '';
+// $incVat = '';
+// $valueAdded = '';
+// $valueNotAdded = '';
 
 print_r($valueAdded);
 
@@ -108,5 +108,10 @@ mysqli_close($link);
     <button>
     <a href="VAT_calc.php">Clear data from 'Historical Data' table</a>
     </button> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script> -->
+    <script src="main.js"></script>
 </body>
 </html>
