@@ -9,15 +9,11 @@ if ($link === false) {
 echo 'Connected to MariaDB vat_1, successfully' . mysqli_get_host_info($link);
 
 
-
 $vat = 1.215;
 $exVat = '';
 $incVat = '';
 $valueAdded = '';
 $valueNotAdded = '';
-// $id = '';
-$now = '2022-06-11';
-
 
 if (isset($_GET['vat'])) {
     $valueAdded = mysqli_escape_string($link, ($_GET['original'] / $vat));
