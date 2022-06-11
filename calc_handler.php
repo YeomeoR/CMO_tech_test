@@ -15,27 +15,39 @@ $incVat = '';
 $valueAdded = '';
 $valueNotAdded = '';
 
-if (isset($_GET['vat'])) {
-    $valueAdded = mysqli_escape_string($link, ($_GET['original'] / $vat));
-    $valueNotAdded = mysqli_escape_string($link, ($_GET['original']));
-    echo 'VAT included';
-} else {
-    $valueAdded = $_GET['original'];
-    $valueNotAdded = $_GET['original'] * $vat;
-    echo 'VAT excluded';
-}
 print_r($valueAdded);
 
-$sql = "insert into historical_data (excVat, incVat) values ('$valueAdded', '$valueNotAdded')";
-
-if (mysqli_query($link, $sql)) {
-    echo ' Record added ';
+// prepare insert stmt
+$sql = "insert into historical_data (excVat, incVat) values (?, ?)";
+if ($stmt = mysqli_prepare($link, $sql)) {
+    // bind vars to prepared stmt as params
+    mysqli_stmt_bind_param($stmt, 'ii', $valueNotAdded, $valueAdded);
+    
+    // set params and calculate
+    if (isset($_GET['vat'])) {
+        $valueAdded = mysqli_escape_string($link, ($_GET['original']));
+        $valueNotAdded = mysqli_escape_string($link, ($_GET['original']  / $vat));
+        echo ' VAT was included in the original figure ';
+    } else {
+        $valueAdded = $_GET['original'] * $vat;
+        $valueNotAdded = $_GET['original'];
+        echo ' VAT was excluded in the original figure ';
+    }
+        
+        if (mysqli_stmt_execute($stmt)) {
+            echo ' Record added ';
+        } else {
+            echo ' Error. Record not added ' . mysqli_error($link);
+        }
 } else {
-    echo ' Error. Record not added ' . mysqli_error($link);
+    echo 'ERROR: Could not prepare stmt query: $sql' . mysqli_error($link);
 }
 
-mysqli_close($link);
+// close stmt
+mysqli_stmt_close($stmt);
 
+// close conn
+mysqli_close($link);
 ?>
 
 
