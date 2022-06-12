@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_POST['submit'])) {
     $link = mysqli_connect("localhost", "root", "", "vat_1");
     
@@ -36,5 +35,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
-
+      //close the db connection
+      mysqli_close($link);
 }
+

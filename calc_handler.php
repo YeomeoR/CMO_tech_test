@@ -1,6 +1,8 @@
 <?php 
 
-include '/wamp64/www/vat_calc/config.php';
+// include 'config.php'; // alternate path
+// include '/config.php'; // alternate path - suggested 
+include '/wamp64/www/vat_calc/config.php'; // working local path
 
 print_r($valueAdded);
 
@@ -12,6 +14,7 @@ print_r($valueAdded);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <title>Historical Data Table</title>
 </head>
@@ -19,6 +22,7 @@ print_r($valueAdded);
     <h1>HISTORICAL VAT DATA</h1>
 
 <?php 
+// connect
 $link = mysqli_connect("localhost", "root", "", "vat_1");
  
 // Check connection
