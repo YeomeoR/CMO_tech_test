@@ -10,25 +10,31 @@ if (isset($_POST['submit'])) {
     }
 
     // fetch mysql table rows
-    $sql = "select id, date, excVat, incVat from historical_data";
-    $results = mysqli_query($link, $sql) or die("Selection Error " . mysqli_error($link));
-
-    var_dump($results);
-
-    $fp = fopen('php://memory', 'w');
-
-    foreach ($results as $result) {
-        fputcsv($fp, $result);
+    $sql = "select * from historical_data";
+    $result = mysqli_query($link, $sql);
+    if (!$result = mysqli_query($link, $sql)) {
+        exit(mysqli_error($link));
     }
 
-    // while($row = mysqli_fetch_assoc($result))
-    // {
-    //     fputcsv($fp, $row);
-    // }
-    
-    fclose($fp);
+    // var_dump($result);
 
-    //close the db connection
-    mysqli_close($link);
+    $histData = array();
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $histData[] = $row;
+        }
+    }
+
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename=hist_data.csv');
+    $output = fopen('php://output', 'w');
+    fputcsv($output, array('id', 'date', 'excVat', 'incVat'));
+
+    if (count($histData) > 0) {
+        foreach ($histData as $row) {
+            fputcsv($output, $row);
+        }
+    }
+
 
 }
