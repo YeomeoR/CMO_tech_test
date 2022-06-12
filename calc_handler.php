@@ -12,9 +12,11 @@ print_r($valueAdded);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Historical Data Table</title>
 </head>
 <body>
+    <h1>HISTORICAL VAT DATA</h1>
 
 <?php 
 $link = mysqli_connect("localhost", "root", "", "vat_1");
@@ -56,16 +58,18 @@ if ($results = mysqli_query($link, $sqlRows)) {
 // close conn
 mysqli_close($link);
 ?>
-<!-- <textarea name="export_data" style="display: none;" id="ta" cols="30" rows="10"><?php // echo $serializeData; ?></textarea> -->
-    <button>
-    <a href="VAT_calc.php">Back to Calculator</a>
-    </button> 
-    <form action="clearDB.php" method="POST">    
-        <input type="submit" name="submit" value="Clear data from 'Historical Data' table" />
-    </form>
-    <form action="exportDBtoCSV.php" method="POST">    
-        <input type="submit" name="submit" value="Export data from 'Historical Data' table" />
-    </form>
+
+<p>fig1. Table of VAT calculation data based on user input requests.</p>
+
+<form action="clearDB.php" method="POST">    
+    <input class="btn" id="delete" type="submit" name="submit" value="Clear data from 'Historical Data' table" />
+</form>
+<form action="exportDBtoCSV.php" method="POST">    
+    <input class="btn" id="export" type="submit" name="submit" value="Export data from 'Historical Data' table" />
+</form>
+<button class="btn" id="back">
+<a href="VAT_calc.php">Back to Calculator</a>
+</button> 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="main.js"></script>

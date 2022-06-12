@@ -1,32 +1,34 @@
 <?php
-$filename = 'historical_data.csv';
-$exportData = unserialize($_POST['export_data']);
 
-$file = fopen($filename, 'w');
 
-foreach ($exportData as $line) {
-    fputcsv($file, $line);
+if (isset($_POST['submit'])) {
+    $link = mysqli_connect("localhost", "root", "", "vat_1");
+    
+    // Check connection
+    if($link === false){
+        die("ERROR: Could not connect. " . mysqli_connect_error());
+    }
+
+    // fetch mysql table rows
+    $sql = "select id, date, excVat, incVat from historical_data";
+    $results = mysqli_query($link, $sql) or die("Selection Error " . mysqli_error($link));
+
+    var_dump($results);
+
+    $fp = fopen('php://memory', 'w');
+
+    foreach ($results as $result) {
+        fputcsv($fp, $result);
+    }
+
+    // while($row = mysqli_fetch_assoc($result))
+    // {
+    //     fputcsv($fp, $row);
+    // }
+    
+    fclose($fp);
+
+    //close the db connection
+    mysqli_close($link);
+
 }
-
-fclose($file);
-
-// download
-header("Content-Description: File Transfer");
-header("Content-Disposition: attachment; filename=".$filename);
-header("Content-Type: application/csv; "); 
-
-readfile($filename);
-
-// deleting file
-unlink($filename);
-exit();
-
-// if (isset($_POST['submit'])) {
-//     $link = mysqli_connect("localhost", "root", "", "vat_1");
- 
-//     // Check connection
-//     if($link === false){
-//         die("ERROR: Could not connect. " . mysqli_connect_error());
-//     }
-
-// }

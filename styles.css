@@ -1,0 +1,80 @@
+table,
+tbody,
+th,
+td {
+  border: 1px solid darkgrey;
+}
+th,
+td {
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+th {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+td {
+  text-align: center;
+}
+table {
+  margin: 5vh 5vw;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(240, 239, 239);
+  /* background-image: url('images/RishiAndHisVAT.jpg'); */
+}
+
+.btn {
+  padding: 1rem 2rem;
+  margin: 2vh;
+  border-radius: 8px;
+}
+#delete {
+  background-color: rgb(184, 5, 5);
+  color: rgb(196, 189, 189);
+  font-weight: bold;
+}
+#export {
+  background-color: rgb(23, 122, 3);
+  color: rgb(196, 189, 189);
+  font-weight: bold;
+}
+#back {
+  font-weight: bold;
+}
+a {
+  color: rgb(231, 8, 8);
+  text-decoration: none !important;
+}
+#delete:hover,
+#export:hover,
+#back:hover {
+  transform: scale(1.05);
+  color: white;
+  font-size: 14px;
+}
+h1 {
+  text-decoration: underline;
+  background-color: rgba(240, 248, 255, 0.7);
+  padding: 1rem;
+}
+p {
+  font-size: 12px;
+  background-color: rgba(240, 248, 255, 0.7);
+  padding: 1rem;
+}
+input {
+  padding: 1rem;
+  background-color: rgba(240, 248, 255, 0.7);
+}
+label {
+  font-size: 1.2rem;
+  background-color: rgba(240, 248, 255, 0.7);
+  padding: 1rem;
+}
+#input-container {
+  margin-top: 8vh;
+}

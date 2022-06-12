@@ -11,7 +11,7 @@ if ($link === false) {
     die('Connection Error: Could not connect.' . mysqli_connect_error());
 }
 
-echo 'Connected to MariaDB vat_1, successfully' . mysqli_get_host_info($link);
+// echo 'Connected to MariaDB vat_1, successfully' . mysqli_get_host_info($link);
 
 
 $vat = 1.2;
