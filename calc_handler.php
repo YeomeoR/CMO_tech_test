@@ -44,6 +44,7 @@ if ($results = mysqli_query($link, $sqlRows)) {
             echo '</tr>';
         }
         echo '</table>';
+        $serializeData = serialize($results);
         // free result set
         mysqli_free_result($results);
     } else {
@@ -55,6 +56,7 @@ if ($results = mysqli_query($link, $sqlRows)) {
 // close conn
 mysqli_close($link);
 ?>
+<!-- <textarea name="export_data" style="display: none;" id="ta" cols="30" rows="10"><?php // echo $serializeData; ?></textarea> -->
     <button>
     <a href="VAT_calc.php">Back to Calculator</a>
     </button> 
@@ -63,7 +65,7 @@ mysqli_close($link);
     </form>
     <form action="exportDBtoCSV.php" method="POST">    
         <input type="submit" name="submit" value="Export data from 'Historical Data' table" />
-</form>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
