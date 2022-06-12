@@ -105,9 +105,45 @@ mysqli_close($link);
     <button>
     <a href="VAT_calc.php">Back to Calculator</a>
     </button> 
-    <button>
-    <a href="VAT_calc.php">Clear data from 'Historical Data' table</a>
-    </button> 
+    <input method="POST" action="clearDB.php" type="submit" name="submit" value="Clear data from 'Historical Data' table" />
+
+
+<?php
+    // ================= REMOVE DATA FROM TABLE ===============
+    // if (isset($_POST['submit'])) {
+    //     echo 'button clicked';
+    //     $link = mysqli_connect("localhost", "root", "", "vat_1");
+
+    //     if ($link === false) {
+    //         die('ERROR: Unable to connect' . $msqli_connect_error($link));
+    //     }
+    //     $sqlRows = "delete * from $vat_1";
+    //     if (mysqli_query($link, $sqlRows)) {
+    //         echo 'Records have been removed';
+    //     } else {
+    //         echo 'ERROR: Unable to execute request: $sqlRows.' . mysqli_error($link);
+    //     }
+
+    //     // close conn
+    //     mysqli_close($link);
+    // }
+
+    // $link = mysqli_connect("localhost", "root", "", "vat_1");
+
+    //     if ($link === false) {
+    //         die('ERROR: Unable to connect' . $msqli_connect_error($link));
+    //     }
+
+    //     $sql = "select * from $database";
+    //     $results = mysqli_query($link, $sql);
+
+
+    //     $fp = fopen('historical_data', 'w');
+    //     while ($result = mysqli_fetch_assoc($results)) {
+    //         fputcsv($fp, $row);
+    //     }
+    //     fclose($fp);
+?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>

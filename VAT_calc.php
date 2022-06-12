@@ -1,17 +1,3 @@
-<?php
-
-// function dd($array, $die = false) {
-//     echo '<pre>' . print_r($array) . '</pre>';
-//     if ($die === true) {
-//         die();
-//     }
-// }
-
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,25 +7,22 @@
         <title>Document</title>
     </head>
     <body>
-        <?php include '/xampp/htdocs/includes/functions/debug_functions.php'; ?>
+    
         
     <h1>Hello VAT free world!</h1>
     
     
     <form method="GET" action="calc_handler.php" id="inputs">
-        <label for="vat">Add VAT?</label>
-        <input type="checkbox" name="vat" id="exVat" value="<?php echo 'checked="checked"' ? true : false; ?>">
-        <input type="int" id="original" value="" name="original" placeholder="">
+        <label for="vat" id="label">Include VAT? </label >
+        <input type="checkbox" name="vat" id="exVat" value="<?php echo 'checked="checked"' ? true : false; ?>" />
+        <input type="int" id="original" value="" name="original" placeholder="" />
     </form>
     
   
-<?php 
 
 
-
-?>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="main.js"></script>
 
 </body>
 </html>

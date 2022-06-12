@@ -3,7 +3,7 @@
 $user = "root"; 
 $password = ""; 
 $host = "localhost"; 
-$database= "vat_1";
+$database = "vat_1";
 
 $link = mysqli_connect($host, $user, $password, $database);
 
