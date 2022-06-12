@@ -1,57 +1,10 @@
 <?php 
 
-// $link = mysqli_connect("localhost", "root", "", "vat_1");
-
-// if ($link === false) {
-//     die('Connection Error: Could not connect.' . mysqli_connect_error());
-// }
-
-// echo 'Connected to MariaDB vat_1, successfully' . mysqli_get_host_info($link);
-
 include '/wamp64/www/vat_calc/config.php';
-
-// $vat = 1.215;
-// $exVat = '';
-// $incVat = '';
-// $valueAdded = '';
-// $valueNotAdded = '';
 
 print_r($valueAdded);
 
-// prepare insert stmt
-// $sql = "insert into historical_data (excVat, incVat) values (?, ?)";
-// if ($stmt = mysqli_prepare($link, $sql)) {
-//     // bind vars to prepared stmt as params
-//     mysqli_stmt_bind_param($stmt, 'ii', $valueNotAdded, $valueAdded);
-    
-//     // set params and calculate
-//     if (isset($_GET['vat'])) {
-//         $valueAdded = mysqli_escape_string($link, ($_GET['original']));
-//         $valueNotAdded = mysqli_escape_string($link, ($_GET['original']  / $vat));
-//         echo ' VAT was included in the original figure ';
-//     } else {
-//         $valueAdded = $_GET['original'] * $vat;
-//         $valueNotAdded = $_GET['original'];
-//         echo ' VAT was excluded in the original figure ';
-//     }
-        
-//         if (mysqli_stmt_execute($stmt)) {
-//             echo ' Record added ';
-//         } else {
-//             echo ' Error. Record not added ' . mysqli_error($link);
-//         }
-// } else {
-//     echo 'ERROR: Could not prepare stmt query: $sql' . mysqli_error($link);
-// }
-
-// // close stmt
-// mysqli_stmt_close($stmt);
-
-
-// // close conn
-// mysqli_close($link);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,49 +58,14 @@ mysqli_close($link);
     <button>
     <a href="VAT_calc.php">Back to Calculator</a>
     </button> 
-    <input method="POST" action="clearDB.php" type="submit" name="submit" value="Clear data from 'Historical Data' table" />
-
-
-<?php
-    // ================= REMOVE DATA FROM TABLE ===============
-    // if (isset($_POST['submit'])) {
-    //     echo 'button clicked';
-    //     $link = mysqli_connect("localhost", "root", "", "vat_1");
-
-    //     if ($link === false) {
-    //         die('ERROR: Unable to connect' . $msqli_connect_error($link));
-    //     }
-    //     $sqlRows = "delete * from $vat_1";
-    //     if (mysqli_query($link, $sqlRows)) {
-    //         echo 'Records have been removed';
-    //     } else {
-    //         echo 'ERROR: Unable to execute request: $sqlRows.' . mysqli_error($link);
-    //     }
-
-    //     // close conn
-    //     mysqli_close($link);
-    // }
-
-    // $link = mysqli_connect("localhost", "root", "", "vat_1");
-
-    //     if ($link === false) {
-    //         die('ERROR: Unable to connect' . $msqli_connect_error($link));
-    //     }
-
-    //     $sql = "select * from $database";
-    //     $results = mysqli_query($link, $sql);
-
-
-    //     $fp = fopen('historical_data', 'w');
-    //     while ($result = mysqli_fetch_assoc($results)) {
-    //         fputcsv($fp, $row);
-    //     }
-    //     fclose($fp);
-?>
+    <form action="clearDB.php" method="POST">    
+        <input type="submit" name="submit" value="Clear data from 'Historical Data' table" />
+    </form>
+    <form action="exportDBtoCSV.php" method="POST">    
+        <input type="submit" name="submit" value="Export data from 'Historical Data' table" />
+</form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script> -->
     <script src="main.js"></script>
 </body>
 </html>

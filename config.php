@@ -31,13 +31,13 @@ if ($stmt = mysqli_prepare($link, $sql)) {
     mysqli_stmt_bind_param($stmt, 'ii', $valueNotAdded, $valueAdded);
     
     // set params and calculate
-    if (isset($_GET['vat'])) {
-        $valueAdded = mysqli_escape_string($link, ($_GET['original']));
-        $valueNotAdded = mysqli_escape_string($link, ($_GET['original']  / $vat));
+    if (isset($_POST['vat'])) {
+        $valueAdded = mysqli_escape_string($link, ($_POST['original']));
+        $valueNotAdded = mysqli_escape_string($link, ($_POST['original']  / $vat));
         echo ' VAT was included in the original figure ';
     } else {
-        $valueAdded = $_GET['original'] * $vat;
-        $valueNotAdded = $_GET['original'];
+        $valueAdded = $_POST['original'] * $vat;
+        $valueNotAdded = $_POST['original'];
         echo ' VAT was excluded in the original figure ';
     }
         
