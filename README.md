@@ -1,6 +1,6 @@
 # CMO_tech_test
 
-###
+### Specifications
 
 • Download and install WAMP server, ensuring you install MariaDB v10.3 (remove or disable MySQL) and PHP v7.4. Alternatively use your preferred stack, but ensure you have PHP7.4 and MariaDB.
 • Create a VAT calculator that shows a history of calculations requested that can be exported as a CSV file.
@@ -21,23 +21,22 @@ Successful implementation of all required functionality
 
 #### Instructions
 
-In MariaDB shell, create table historical_calcs
+In MariaDB shell, create table historical_calcs with the following command:
 
 create table historical_calcs(id int auto_increment, date datetime default current_timestamp, excVat int, incVat int, PRIMARY KEY(id));
 
-#####
+##### Location of project
 
-The project resides in a folder in wamp64/www/ called vat_calc. Files for the project will be served from within here.
+The project resides in a folder in wamp64/www/ called vat_calc. Files for the project will be served from within here using [localhost](http://localhost/vat_calc/VAT_calc.php).
 
-####
+#### Known bugs / issues:
 
-Known bugs / issues:
 There may be redundant or duplicated code. The config file was added towards the 3rd quarter of the project.
 Most console.logs() or var_dumps() have been removed. Some may still remain.
-Important sections of code have been commented / documented.
+Important markers in sections of code have been commented / documented.
 exportDBtoCSV.php registers an error in the editor but functions correctly.
 Relative paths to files and folders may be incorrect when cloning this repository and may need a prefix: '/' or a full path
 
-#####
+##### Time: 
 
-Time spent: installation of required server and php version -> 2hrs; design of programme -> 1.5hrs; coding the project -> 4.5hrs; styling -> 20 mins (max)
+installation of required server and php version -> 2hrs; design of programme -> 1.5hrs; coding the project -> 4.5hrs; styling -> 20 mins (max)
