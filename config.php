@@ -15,7 +15,7 @@ if ($link === false) {
 
 
 $vat = 1.2;
-// $R = $vat; // Rate: as requested in test specs
+// $R = '1.' . ($_POST['exVat']) / 100; // a potential misreading of the task??
 $exVat = '';
 // $V = $exVat; // excl. VAT: as requested in test specs
 $incVat = '';

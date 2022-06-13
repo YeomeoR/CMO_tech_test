@@ -4,7 +4,8 @@
 // include '/config.php'; // alternate path - suggested 
 include '/wamp64/www/vat_calc/config.php'; // working local path
 
-print_r($valueAdded);
+// print_r($valueAdded);
+// $R = $_POST['exVat'];
 
 ?>
 

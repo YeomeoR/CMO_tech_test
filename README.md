@@ -17,7 +17,7 @@ Successful implementation of all required functionality
 ### Changes to the specifications:
 
 'V' is replaced by 'excVat'
-'R', 'rate' is set and fixed at 20%
+'R', 'rate' is set and fixed at 20% (This was a potential misreading of the task parameters where 'R' might have been required as a user defined %)
 
 #### Instructions
 
@@ -26,6 +26,7 @@ In MariaDB shell, create table historical_calcs with the following command:
 create table historical_calcs(id int auto_increment, date datetime default current_timestamp, excVat int, incVat int, PRIMARY KEY(id));
 
 #### Connection to MariaDB
+
 Connection is implemented in procedural coding style.
 Some basic prevention of SQL injection using placeholder in query.
 
@@ -41,6 +42,6 @@ Important markers in sections of code have been commented / documented.
 exportDBtoCSV.php registers an error in the editor but functions correctly.
 Relative paths to files and folders may be incorrect when cloning this repository and may need a prefix: '/' or a full path
 
-##### Time: 
+##### Time:
 
 installation of required server and php version -> 2hrs; design of programme -> 1.5hrs; coding the project -> 4.5hrs; styling -> 20 mins (max)
