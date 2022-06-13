@@ -27,6 +27,8 @@ create table historical_calcs(id int auto_increment, date datetime default curre
 
 #### Connection to MariaDB
 Connection is implemented in procedural coding style.
+Some basic prevention of SQL injection using placeholder in query.
+
 ##### Location of project
 
 The project resides in a folder in wamp64/www/ called vat_calc. Files for the project will be served from within here using [localhost](http://localhost/vat_calc/VAT_calc.php).
