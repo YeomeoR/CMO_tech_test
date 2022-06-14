@@ -18,7 +18,7 @@
                <input type="checkbox" name="vat" id="exVat" value="<?php echo 'checked="checked"' ? true : false; ?>" />
         &pound; &nbsp;<input type="int" id="original" value="" name="original" placeholder="Enter an amount" required="required" />
             </form>
-            <h3>Press ENTER to submit your calculation request</h3>
+            <h2>Press ENTER to submit your calculation request</h2>
     
         </div> 
     
